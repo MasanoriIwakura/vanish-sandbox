@@ -10,6 +10,11 @@ varnish検証用
 
 一旦割愛。Dockerの公式イメージを使用する
 
+[Official Document](https://varnish-cache.org/docs/6.0/)
+
+# ライフサイクル
+
+
 # Setup
 
 ## default.vclの設定
@@ -17,4 +22,6 @@ varnish検証用
 [VCLの書き方](https://varnish-cache.org/docs/3.0/reference/vcl.html)
 
 役割
-- デフォルトの設定を行う(nginxで言う)
+- デフォルトの設定を行う
+
+

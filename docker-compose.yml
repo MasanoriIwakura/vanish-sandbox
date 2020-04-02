@@ -4,8 +4,10 @@ services:
     app:
         build:
             context: ./app
-            target: app
         image: varnish-sandbox-app
+        command: yarn dev
+        volumes:
+            - ./app:/app
 
     nginx:
         build:
