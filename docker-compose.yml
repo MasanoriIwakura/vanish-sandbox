@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+    app:
+        build:
+            context: ./app
+            target: app
+        image: varnish-sandbox-app
+
+    nginx:
+        build:
+            context: ./nginx
+        image: varnish-sandbox-nginx
+        environment:
+            - HOST=app
+        ports:
+            - 8000:80
+        depends_on:
+            - app
+
+    varnish:
+        build:
+            context: ./varnish
+        image: varnish-sanbox-varnish
+        ports:
+            - 8080:80
+        volumes:
+            - ./varnish/conf/default.vcl:/etc/varnish/default.vcl:ro
+        depends_on:
+            - nginx
+            - app
